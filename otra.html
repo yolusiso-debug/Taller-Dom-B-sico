@@ -4,9 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ejercicio 5: Presupuesto de un evento</title>
-  
-<link rel="stylesheet" href="css/style.css">
 
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -26,54 +25,30 @@
     <strong>tabla</strong>.
   </p>
 
-  <!--
-    Instrucciones:
-    1. Los inputs no tienen id ni name: accede a ellos desde tu JS
-       recorriendo el DOM del formulario.
-    2. Agrega el atributo onclick al botón "Calcular presupuesto",
-       apuntando a una función de tu JS.
-    3. En tu JS debes calcular, usando variables, al menos:
-       - comida total = invitados * costo de comida por invitado
-       - bebida total = invitados * costo de bebida por invitado
-       - subtotal = comida total + bebida total + decoración + música
-       - propina = subtotal * (porcentaje de propina / 100)
-       - total general = subtotal + propina
-       - costo por invitado = total general / invitados
-    4. Las celdas de la columna "Valor" de la tabla tampoco tienen id ni
-       name: accede a ellas recorriendo las filas de la tabla
-       (querySelectorAll('tbody tr'), children, etc.) y escribe ahí cada
-       resultado.
-    5. Valida qué pasa si el número de invitados es 0 o está vacío.
-    6. Todos los valores de la tabla son dinero: antes de escribirlos en la
-       celda, fórmatealos con toLocaleString() (por ejemplo:
-       totalGeneral.toLocaleString('es-CO')).
-    7. Crea y vincula tu propio CSS y tu propio JS.
-  -->
-
   <form>
     <label for="numero-inv">Número de invitados:</label>
-    <input type="number" placeholder="Número de invitados" >
+    <input type="number" placeholder="Número de invitados" id="numero-inv">
 
     <label for="cost-comida">Costo de comida por invitado:</label>
-    <input type="number" placeholder="Costo de comida por invitado">
+    <input type="number" placeholder="Costo de comida por invitado" id="cost-comida">
 
     <label for="cost-bebida">Costo de bebida por invitado:</label>
-    <input type="number" placeholder="Costo de bebida por invitado" >
+    <input type="number" placeholder="Costo de bebida por invitado" id="cost-bebida">
 
     <label for="cost-decor">Costo de decoración:</label>
-    <input type="number" placeholder="Costo de decoración" >
+    <input type="number" placeholder="Costo de decoración" min="0" id="cost-decor">
 
     <label for="cost-musica">Costo de música/animación:</label>
-    <input type="number" placeholder="Costo de música/animación" >
+    <input type="number" placeholder="Costo de música/animación" id="cost-musica">
 
     <label for="propina-porc">Propina para el personal (%):</label>
-    <input type="number" placeholder="Propina para el personal (%)" >
+    <input type="number" placeholder="Propina para el personal" min="0" id="propina-porc">
 
     <button type="button" onclick="calcularPresupuesto()">Calcular presupuesto</button>
   </form>
 
   <h2>Detalle del presupuesto</h2>
-  <table >
+  <table id="tabla-presupuesto">
     <thead>
       <tr>
         <th>Concepto</th>
@@ -82,45 +57,40 @@
     </thead>
     <tbody>
       <tr>
-        <td>Comida total</td>
-        <td id="comida-total-s"></td>
+        <td>Total de comida</td>
+        <td></td>
       </tr>
       <tr>
-        <td>Bebida total</td>
-        <td id="bebida-total-s"></td>
+        <td>Total de bebida</td>
+        <td></td>
       </tr>
       <tr>
         <td>Decoración</td>
-        <td id="decoracion"></td>
+        <td></td>
       </tr>
       <tr>
         <td>Música/animación</td>
-        <td id="musica"></td>
+        <td></td>
       </tr>
       <tr>
         <td>Subtotal</td>
-        <td id="subtotal"></td>
+        <td></td>
       </tr>
       <tr>
         <td>Propina</td>
-        <td id="propina"></td>
+        <td></td>
       </tr>
       <tr>
         <td>Total general</td>
-        <td id="total-general"></td>
+        <td></td>
       </tr>
       <tr>
         <td>Costo por invitado</td>
-        <td id="costo-inv"></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
 
-  <!--
-    REQUISITO: vincula aquí tu propio archivo JS.
-    Ejemplo: <script src="otra.js"></script>
-  -->
-    <script src="js/otra.js"></script>
-
+  <script src="js/otra.js"></script>
 </body>
 </html>
